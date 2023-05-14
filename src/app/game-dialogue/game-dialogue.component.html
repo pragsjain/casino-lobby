@@ -1,0 +1,9 @@
+<div class="dialogue">
+  <h1 mat-dialog-title>Click to play </h1>
+  <div mat-dialog-content>
+  <div>{{data.name}}</div><br>
+  <div><img [src]= "data.isDesktopDevice? data.assets.desktopThumbnail.value:
+    data.assets.mobileThumbnail.value "/></div>
+  <button mat-button>Play</button>
+  </div>
+</div>

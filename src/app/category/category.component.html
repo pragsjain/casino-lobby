@@ -1,0 +1,16 @@
+<a [routerLink] = "['/']" class="all-categories">
+  <mat-icon aria-hidden="false">
+    keyboard_arrow_left
+</mat-icon>All Categories</a>
+
+<h2 class="category-heading"><u>Category: {{category}}</u></h2>
+
+<div class="games">
+  <ng-container *ngFor="let game of gameIdArray; index as j" >
+        <div [class.isMobile]="!isDesktopDevice" class="game" (click)="openGame(game)">
+          <div><img [src]= "isDesktopDevice? games[game.gameId]?.assets?.desktopThumbnail?.value:
+            games[game.gameId]?.assets?.mobileThumbnail?.value "/></div>
+          <div>{{games[game?.gameId]?.name}}</div>
+        </div>
+  </ng-container>
+</div>

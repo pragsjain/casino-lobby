@@ -1,0 +1,47 @@
+<div class="casino-page">
+
+  <div class="search">
+    <input type="text" [(ngModel)]="gameSearchText" placeholder="Search a game"/>
+    <button (click)="searchGame()">Search</button>
+    <button (click)="isSearched=false" class="reset-btn">Reset</button>
+  </div>
+
+  <ng-container *ngIf="isSearched">
+    <div class="games">
+      <ng-container *ngFor="let game of filteredGames; index as j" >
+            <div class="game" (click)="openGame(game)" [class.isMobile]="!isDesktopDevice">
+              <div>{{games[game?.gameId]?.name}}</div>
+              <div><img [src]="isDesktopDevice? games[game.gameId]?.assets?.desktopThumbnail?.value : games[game.gameId]?.assets?.mobileThumbnail?.value" /></div>
+            </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!isSearched">
+    <div *ngFor="let category of categories; index as i">
+      <div class="category">
+        <b class="flex center category-heading">
+          <mat-icon aria-hidden="false">
+            {{materialicons[i]}}
+          </mat-icon>
+          {{category.name}}
+        </b>
+        <span (click)="showAllGames(category.name)" *ngIf="!showAll">
+          <a [routerLink]="['/category', category.name]" routerLinkActive="active" ariaCurrentWhenActive="page">Show More</a>
+        </span>
+      </div>
+      <div class="games">
+        <ng-container *ngFor="let game of category.games;index as j" >
+            <ng-container *ngIf="showAll?j>=0:j<4";>
+              <div class="game" (click)="openGame(game)" [class.isMobile]="!isDesktopDevice">
+                <div>{{games[game?.gameId]?.name}}</div>
+                <div><img [src]="isDesktopDevice? games[game.gameId]?.assets?.desktopThumbnail?.value : games[game.gameId]?.assets?.mobileThumbnail?.value" /></div>
+              </div>
+            </ng-container>
+        </ng-container>
+      </div>
+      <hr><br>
+    </div>
+  </ng-container>
+</div>
+

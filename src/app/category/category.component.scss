@@ -1,0 +1,29 @@
+
+.all-categories{
+  display: flex;
+  align-items: flex-end;
+}
+.category-heading{
+  text-align: center;
+}
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2.5rem;
+  align-items: flex-end;
+  .game {
+    cursor: pointer;
+    margin: 5px 10px;
+    .break{
+      overflow-wrap: break-word;
+    }
+    &.isMobile {
+      width: 126px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+

@@ -1,0 +1,47 @@
+.casino-page{
+  margin: 0.5rem;
+  padding: 1.5rem;
+}
+.flex {
+  display: flex;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.reset-btn{
+  margin-left: 20px;
+  color: black;
+  background: lawngreen;
+}
+.category {
+  display: flex;
+  justify-content: space-between;
+  .center {
+    align-items: center;
+  }
+  .category-heading {
+    .mat-icon {
+      margin-right: 5px;
+    }
+  }
+}
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  .game {
+    margin: 5px 10px;
+    .break{
+      overflow-wrap: break-word;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+    &.isMobile {
+      width: 126px;
+    }
+  }
+}
+
